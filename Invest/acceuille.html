@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_index.css">
+    <link rel="icon" href="https://img.freepik.com/vecteurs-premium/lettre-v-modele-logo-style-ligne_23987-75.jpg">
+    <title>Invest - Le Meilleur Site De Trading Pour Jeunes</title>
+    <style>
+        body {
+            background-color: rgba(12, 0, 31, 0.4); /* Opacité 40% */
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+        
+        h1 {
+            color: wheat;
+            font-size: 3em;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        p {
+            color: rgb(255, 255, 255);
+            font-size: 1.2em;
+            margin-bottom: 50px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .Trading {
+            position: relative;
+            width: 500px;
+            height: auto;
+            animation: fadeInLeft 1s ease-out;
+        }
+        
+        .button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background: linear-gradient(to right, violet, blue);
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            animation: slideInBottom 1s ease-out;
+            margin-bottom: 20px;
+        }
+
+        .login-signup {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .login-button,
+        .signup-button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+            border-radius: 20px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .login-button:hover,
+        .signup-button:hover {
+            background-color: #fff;
+            color: #000;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInBottom {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Trading en ligne</h1>
+        <p>Bienvenue sur notre plateforme de trading innovante.</p>
+        <button class="button">Commencer</button>
+        <div class="login-signup">
+            <button class="login-button">Login</button>
+            <button class="signup-button">Sign up</button>
+        </div>
+    </div>
+    <div class="documentation">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula sem eu eros rhoncus, sed commodo augue venenatis. Proin id justo sed elit eleifend aliquet ac sed libero. Mauris ac sodales lacus. Sed quis tincidunt nunc, id sollicitudin lectus. Sed at dui sed lectus pharetra accumsan. Donec venenatis purus ut dui malesuada, id pharetra metus fermentum. Nulla facilisi. Sed id mi at velit posuere fermentum sed ac nisl. Curabitur rhoncus, dui non vehicula volutpat, est sem efficitur felis, ut aliquam magna neque sed dolor. Donec vitae eros magna. Integer nec nunc ut libero finibus laoreet.
+        </p>
+    </div>
+    <script>
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                document.querySelector('.documentation').style.display = "block";
+            } else {
+                document.querySelector('.documentation').style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_index.css">
+    <link rel="icon" href="https://img.freepik.com/vecteurs-premium/lettre-v-modele-logo-style-ligne_23987-75.jpg">
+     <title>Record rombouboule tête de neuille</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Record rombouboule tête de neuille</h1>
+        <div class="transaction-form">
+            <input type="text" id="description" placeholder="Description">
+            <input type="number" id="amount" placeholder="Montant">
+            <button onclick="addTransaction()">Ajouter</button>
+        </div>
+        <div class="transaction-list" id="transactionList">
+            <!-- Liste des transactions -->
+        </div>
+    </div>
+    <div class="dashboard">
+        <canvas id="myChart"></canvas>
+        <div id="lastModified"></div>
+        <script>
+            function updateLastModified(dateTime) {
+    const options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric'
+    };
+    const formattedDateTime = new Intl.DateTimeFormat('fr-FR', options).format(dateTime);
+    document.getElementById('lastModified').textContent = 'Dernière modification : ' + formattedDateTime;
+}
+
+        </script>
+       <script>
+       function addTransaction() {
+    const description = document.getElementById('description').value;
+    const amount = parseFloat(document.getElementById('amount').value);
+
+    if (description.trim() !== '' && !isNaN(amount)) {
+        const transaction = {
+            description: description,
+            amount: amount,
+            dateTime: new Date() // Ajouter la date et l'heure actuelles
+        };
+
+        transactions.push(transaction);
+        saveTransactions(); // Sauvegarder les transactions
+        updateChart();
+        updateStatistics();
+        updateLastModified(transaction.dateTime); // Mettre à jour la date et l'heure de la dernière modification
+
+        document.getElementById('description').value = '';
+        document.getElementById('amount').value = '';
+    } else {
+        alert('Veuillez entrer une description et un montant valide.');
+    }
+}
+
+
+       </script>
+       <script>
+        // Fonction pour afficher une notification
+function showDailyNotification() {
+    const notificationTitle = 'Rappel quotidien';
+    const notificationOptions = {
+        body: 'N\'oubliez pas de mettre à jour vos transactions financières aujourd\'hui !'
+    };
+
+    // Vérifier si les notifications sont prises en charge par le navigateur
+    if ('Notification' in window) {
+        Notification.requestPermission().then(permission => {
+            if (permission === 'granted') {
+                new Notification(notificationTitle, notificationOptions);
+            }
+        });
+    }
+}
+
+// Planifier l'affichage de la notification quotidienne à 10h00
+function scheduleDailyNotification() {
+    const now = new Date();
+    const targetTime = new Date(
+        now.getFullYear(),
+        now.getMonth(),
+        now.getDate(),
+        10, // Heure de la notification (par exemple, 10h00)
+        0, // Minutes de la notification
+        0 // Secondes de la notification
+    );
+
+    const timeUntilNotification = targetTime.getTime() - now.getTime();
+    if (timeUntilNotification > 0) {
+        setTimeout(showDailyNotification, timeUntilNotification);
+    }
+}
+
+// Appeler la fonction pour planifier la notification quotidienne au chargement de la page
+scheduleDailyNotification();
+
+       </script>
+        <div id="statistics">
+            <p>Total jouer: <span id="totalBalance" class="positive">+<span>0€</span></span></p>
+          
+
+            <!-- Ajoutez d'autres statistiques ici -->
+        </div>
+ <style>
+    /* Ajout de styles pour les gains */
+.positive {
+    color: green; /* Couleur verte pour les gains */
+}
+
+/* Ajout de styles pour les dépenses */
+.negative {
+    color: red; /* Couleur rouge pour les dépenses */
+}
+
+ </style>  
+ <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Calculatrice Javascript</title>
+    </head>
+    <body>
+    
+  
+    </body>
+  </html>
+ <style>
+.title{
+    font-size: 25px;
+    font-family: sans-serif;
+    color: #333333;
+}
+
+#case{
+    height: 37px;
+    width: 200px;
+    border: 2px solid #DDDDDD;
+    border-radius: 10px;
+}
+
+.number{
+    height: 50px;
+    width: 50px;
+    font-size: 25px;
+    color: white;
+    border: 2px solid #DDDDDD;
+    border-radius: 10px;
+    background-color: #333333;
+}
+.number:hover {
+    background-color: #007BFF;
+}
+
+.operator{
+    height: 50px;
+    width: 50px;
+    font-size: 25px;
+    color: white;
+    border: 2px solid #DDDDDD;
+    border-radius: 10px;
+    background-color: #007BFF;
+}
+.operator:hover{
+    background-color: #333333;
+}
+
+
+ </style>   
+ <script>
+     function btm(val) {
+         document.getElementById("calc-output").innerHTML += val;
+     }
+     function btmClean(){
+        document.getElementById("calc-output").innerHTML = "";
+     }
+     function btmPlus() {
+        document.getElementById("calc-output").innerHTML += "+";
+     }
+     function btmLess() {
+        document.getElementById("calc-output").innerHTML += "-";
+     }
+     function btmMultiply() {
+        document.getElementById("calc-output").innerHTML += "*";
+     }
+     function btmDivision() {
+        document.getElementById("calc-output").innerHTML += "/";
+     }
+
+     function btmEgal() {
+	      var egal = eval(document.getElementById('calc-output').innerHTML);
+	      document.getElementById('calc-output').innerHTML = egal;
+      }
+
+
+ </script>     
+        <div class="container">
+            <!-- Autres éléments... -->
+            <button class="suppr" onclick="removeLastTransaction()">Supprimer la dernière transaction</button>
+    </div>
+    
+    <script>
+       // Fonction pour sauvegarder les transactions dans le stockage local
+function saveTransactions() {
+    localStorage.setItem('transactions', JSON.stringify(transactions));
+}
+
+// Fonction pour charger les transactions depuis le stockage local
+function loadTransactions() {
+    const savedTransactions = localStorage.getItem('transactions');
+    if (savedTransactions) {
+        transactions = JSON.parse(savedTransactions);
+        updateChart();
+        updateStatistics();
+    }
+}
+
+// Appeler la fonction de chargement des transactions au chargement de la page
+document.addEventListener('DOMContentLoaded', function() {
+    loadTransactions();
+});
+
+// Modifier la fonction addTransaction pour sauvegarder les transactions après chaque ajout
+function addTransaction() {
+    const description = document.getElementById('description').value;
+    const amount = parseFloat(document.getElementById('amount').value);
+
+    if (description.trim() !== '' && !isNaN(amount)) {
+        const transaction = {
+            description: description,
+            amount: amount
+        };
+
+        transactions.push(transaction);
+        saveTransactions(); // Sauvegarder les transactions
+        updateChart();
+        updateStatistics();
+
+        document.getElementById('description').value = '';
+        document.getElementById('amount').value = '';
+    } else {
+        alert('Veuillez entrer une description et un montant valide.');
+    }
+}
+
+    </script>
+    <script>
+        // Fonction pour supprimer la dernière transaction sauvegardée
+function removeLastTransaction() {
+    if (transactions.length > 0) {
+        transactions.pop(); // Supprimer la dernière transaction
+        saveTransactions(); // Sauvegarder les transactions actualisées
+        updateChart(); // Actualiser le graphique
+        updateStatistics(); // Actualiser les statistiques
+    } else {
+        alert('Aucune transaction à supprimer.');
+    }
+}
+
+    </script>
+    <script>
+        // Fonction pour mettre à jour le graphique avec tous les suivis
+function updateChart() {
+    let labels = [];
+    let datasets = [];
+
+    suivis.forEach((suivi, index) => {
+        let data = [];
+        let balance = suivi.initialBalance;
+
+        // Parcourir les transactions du suivi et calculer le solde à chaque étape
+        suivi.transactions.forEach(transaction => {
+    if (transaction.amount < 0) {
+        balance -= Math.abs(transaction.amount); // Soustraction du montant en cas de perte
+    } else {
+        balance += transaction.amount; // Ajout du montant en cas de gain
+    }
+    data.push(balance);
+});
+
+
+        // Créer un nouveau dataset pour chaque suivi
+        datasets.push({
+            label: suivi.name,
+            data: data,
+            backgroundColor: suivi.color,
+            borderColor: suivi.color,
+            borderWidth: 1
+        });
+
+        // Utiliser les transactions du premier suivi comme labels
+        if (index === 0) {
+            suivi.transactions.forEach(transaction => {
+                labels.push(transaction.description);
+            });
+        }
+    });
+ 
+    // Mettre à jour les données du graphique
+    myChart.data.labels = labels;
+    myChart.data.datasets = datasets;
+    myChart.update();
+}
+
+    </script>
+ 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+   
+  
+</body>
+</html>

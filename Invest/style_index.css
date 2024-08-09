@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+ .account {
+    position: relative;
+    right: -929px;
+    border-radius: 80px;
+    height: 100px;
+    width: 200px;
+ }
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.transaction-form {
+    margin-bottom: 20px;
+}
+
+.transaction-form input[type="text"],
+.transaction-form input[type="number"],
+.transaction-form button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+.transaction-list {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.transaction-item {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+.transaction-item:last-child {
+    border-bottom: none;
+}
+.suppr {
+    background-color: #f44336; /* Rouge */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.suppr:hover {
+    background-color: #cc0000; /* Rouge foncé au survol */
+}
+.add {
+    background-color: #4CAF50; /* Vert */
+    color: white;
+    padding: 10px 80px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.add:hover {
+    background-color: #45a049; /* Vert foncé au survol */
+}
+
